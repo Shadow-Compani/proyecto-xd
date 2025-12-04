@@ -1,0 +1,224 @@
+/* ============================ */
+/*        PALETA DE COLOR       */
+/* ============================ */
+:root {
+  --zorro-naranja: #ff7a18;
+  --zorro-brillo: #ffa54a;
+  --tuxedo-negro: #0a0a0a;
+  --tuxedo-blanco: #f2f2f2;
+  --suave-blur: rgba(0,0,0,0.45);
+  --resaltado: #ff7f00;
+  --azul-redes: #4da3ff;
+}
+
+/* ============================ */
+/*        ESTILO GENERAL        */
+/* ============================ */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0c0c0c, #1a1a1a);
+  color: white;
+  overflow-x: hidden;
+  text-align: center;
+  animation: fadeIn 1.3s ease;
+}
+
+/* ============================ */
+/*      CONTENEDOR PRINCIPAL    */
+/* ============================ */
+.main-box {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 40px;
+  background: var(--suave-blur);
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(255,255,255,0.08);
+  text-align: center;
+  animation: floatBox 6s ease-in-out infinite;
+}
+
+/* ============================ */
+/*           BOTONES            */
+/* ============================ */
+.btn-animal {
+  display: block;
+  width: 240px;
+  margin: 20px auto;
+  padding: 15px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 18px;
+  transition: 0.35s ease;
+}
+
+/* ZORRO */
+.btn-zorro {
+  background: var(--zorro-naranja);
+  color: #1a1a1a;
+  box-shadow: 0 0 12px rgba(255,140,30,0.6);
+}
+.btn-zorro:hover {
+  background: var(--zorro-brillo);
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255,160,60,0.9);
+}
+
+/* GATO */
+.btn-gato {
+  background: var(--tuxedo-negro);
+  color: var(--tuxedo-blanco);
+  border: 2px solid var(--tuxedo-blanco);
+  box-shadow: 0 0 12px rgba(255,255,255,0.35);
+}
+.btn-gato:hover {
+  background: #111;
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255,255,255,0.65);
+}
+
+/* ============================ */
+/*      ANIMACIONES SUAVES      */
+/* ============================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatBox {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-12px); }
+}
+
+/* ============================ */
+/*      DECORACIÓN ANIMAL       */
+/* ============================ */
+.decor-zorro,
+.decor-gato {
+  position: fixed;
+  width: 220px;
+  opacity: 0.18;
+  filter: blur(1.3px);
+}
+
+/* Zorro */
+.decor-zorro {
+  top: 10%;
+  left: -80px;
+  transform: rotate(-12deg);
+  animation: foxFloat 9s ease-in-out infinite;
+}
+@keyframes foxFloat {
+  0%,100% { transform: rotate(-12deg) translateY(0); }
+  50%     { transform: rotate(-12deg) translateY(-20px); }
+}
+
+/* Gato */
+.decor-gato {
+  bottom: 5%;
+  right: -80px;
+  transform: rotate(8deg);
+  animation: catFloat 10s ease-in-out infinite;
+}
+@keyframes catFloat {
+  0%,100% { transform: rotate(8deg) translateY(0); }
+  50%     { transform: rotate(8deg) translateY(-20px); }
+}
+
+/* ============================ */
+/*         LINKS GLOBALES       */
+/* ============================ */
+a {
+  color: #ffa500;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+a:hover {
+  color: white;
+  text-shadow: 0 0 8px #ffa500, 0 0 15px #ff7b00;
+  transform: scale(1.05);
+}
+
+/* ============================ */
+/*         GALERÍA CUADRADA     */
+/* ============================ */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 0;
+}
+
+.galeria img {
+  width: 30%;
+  aspect-ratio: 1 / 1;   /* Todas iguales */
+  object-fit: cover;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--resaltado);
+}
+
+/* ============================ */
+/*     GALERÍA HORIZONTAL       */
+/* ============================ */
+.media {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.media img,
+.media video {
+  flex: 0 0 auto;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.media img:hover,
+.media video:hover {
+  transform: scale(1.03);
+}
+
+/* ============================ */
+/*         VIDEO ESTÉTICO       */
+/* ============================ */
+.video-container {
+  margin-top: 30px;
+}
+
+.video-container video {
+  width: 80%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px var(--resaltado);
+  transition: 0.3s ease;
+}
+
+.video-container video:hover {
+  transform: scale(1.02);
+}
+
+/* ============================ */
+/*       REDES SOCIALES         */
+/* ============================ */
+.redes a {
+  color: var(--azul-redes);
+  margin: 10px;
+  font-size: 1.2rem;
+  transition: 0.3s ease;
+}
+
+.redes a:hover {
+  color: white;
+  text-shadow: 0 0 10px var(--azul-redes);
+}
